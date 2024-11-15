@@ -1,6 +1,5 @@
 <%@ page import="main.java.com.example.servletapp.model.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +31,6 @@
     <thead>
     <tr>
         <th>Student ID</th>
-        <th>Student Name</th>
         <th>Department</th>
         <th>Marks</th>
         <th>Pass</th>
@@ -47,28 +45,6 @@
         <td><%= student.getStudentID() %></td>
         <td><%= student.getDepartment() %></td>
         <td><%= student.getMarks() %></td>
-        <td><%= student.isPass() ? "Yes" : "No" %></td>
-    </tr>
-    <% } %>
-    </tbody>
-</table>
-
-<h2>Pass Percentage by Department</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Department</th>
-        <th>Pass %</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-        Map<String, Double> passPercentageMap = (Map<String, Double>) request.getAttribute("passPercentageMap");
-        for (Map.Entry<String, Double> entry : passPercentageMap.entrySet()) {
-    %>
-    <tr>
-        <td><%= entry.getKey() %></td>
-        <td><%= String.format("%.2f", entry.getValue()) %> %</td>
     </tr>
     <% } %>
     </tbody>
